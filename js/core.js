@@ -21,9 +21,8 @@ const setup = () => {
   const txt_text = byId("text");
   const btn_submit = byId("submit");
 
-  const lbl_estimate = byId("speak_estimate");
+  const lbl_estimate = byId("aim_estimate");
   const lbl_balance = byId("wallet_balance");
-  const save_as_link = byId("save_audio");
 
   const inp_tx_val = byId("transaction_value");
   const btn_update_balance = byId("update_balance");
