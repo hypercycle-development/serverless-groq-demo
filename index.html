@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Groq Demo</title>
+    <script src="js/metamask-sdk.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/ethers.min.js"></script>
+    <script src="js/hypc.js"></script>
+    <script src="js/contracts.js"></script>
+    <script src="js/core.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <link href="core.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container text-center">
+      <div class="row m-5">
+	<h3 id="title">Groqless</h3>
+      </div>
+      <form>
+	<div class="row mb-3 col-12">
+	  <textarea id="text" class="form-control">Hi there, groq!</textarea>
+	</div>
+	<div class="row mb-3 col-12">
+	  <div class="d-grid gap-2 col-6" id="aim_estimate">
+	    Estimate:
+	  </div>
+	  <div class="d-grid gap-2 col-6" id="wallet_balance">
+	    Balance:
+	  </div>
+	</div>
+	<div class="row mb-3 col-12">
+	  <div class="d-grid gap-2 col-6">
+	  </div>
+	  <div class="d-grid gap-2 col-3">
+	    <input id="transaction_value" placeholder="HyPC amount" />
+	  </div>
+	  <div class="d-grid gap-2 col-3">
+	    <button id="update_balance" class="btn btn-secondary">
+	      Send HyPC
+	    </button>
+	  </div>
+	</div>
+	<div class="row mb-3">
+	  <div class="d-grid gap-2 col-6">
+	    <!-- Spacing -->
+	  </div>
+	  <div class="d-grid gap-2 col-6">
+	    <button id="submit" class="btn btn-primary">
+	      Send
+	    </button>
+	  </div>
+	</div>
+	<div class="row mb-3" id="chat_history">
+	</div>
+      </form>
+    </div>
+  </body>
+</html>
