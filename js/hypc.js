@@ -259,6 +259,7 @@ const HyPC = {eth: (NODE, appName) => {
       fundPoolV1: "",
     },
   };
+  const HyPCAddress = CONTRACT_ADDRESSES.testnet.hypc;
 
   const web3 = new Web3(window.ethereum);
   const HyPCContract = new web3.eth.Contract(erc20ABI, HyPCAddress);
