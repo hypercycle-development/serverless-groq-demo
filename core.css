@@ -1,0 +1,17 @@
+.msg-container {
+  width: 100%;
+  display: flex;
+}
+
+.msg-container.right {
+  justify-content: flex-end
+}
+
+.msg-container.left {
+  justify-content: flex-start
+}
+
+.msg-container p {
+  max-width: 50%;
+  border-radius: 10px;
+}

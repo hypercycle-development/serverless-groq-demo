@@ -67,10 +67,8 @@ const setup = () => {
     const text = txt_text.value;
 
     const my_msg = document.createElement("div");
-    my_msg.classList.add("card");
-    my_msg.classList.add("text-bg-primary");
-    my_msg.classList.add("my-2");
-    my_msg.innerHTML = `<div class="card-header text-left"><p>You:</p></div><div class="card-body"><p class="card-text text-left">${text}</p></div>`;
+    my_msg.classList.add("msg-container", "text-bg-primary", "my-2", "left");
+    my_msg.innerHTML = `<p><b>You:</b> ${text}</p>`;
     chat_history.prepend(my_msg);
 
     hypClient.aims().groq.fetchResult("predict", {prompt: text})
@@ -79,10 +77,8 @@ const setup = () => {
 	btn_submit.innerHTML = "Send";
 	btn_submit.removeAttribute("disabled");
         const resp_msg = document.createElement("div");
-        resp_msg.classList.add("card");
-        resp_msg.classList.add("text-bg-light");
-        resp_msg.classList.add("my-2");
-        resp_msg.innerHTML = `<div class="card-header text-left"><p>Groq:</p></div><div class="card-body"><p class="card-text text-left">${dat.response}</p></div>`;
+        resp_msg.classList.add("msg-container", "text-bg-light", "my-2", "right");
+        resp_msg.innerHTML = `<p><b>Groq:</b> ${dat.response}</p>`;
         chat_history.prepend(resp_msg);
         return updateBalance();
       })
