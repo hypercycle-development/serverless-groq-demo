@@ -27,6 +27,8 @@ const setup = () => {
   const inp_tx_val = byId("transaction_value");
   const btn_update_balance = byId("update_balance");
 
+  const chat_history = byId("chat_history");
+
   const updateEstimate = () => {
     return hypClient.aims().groq.fetchEstimate("predict", {prompt: txt_text.value})
       .then(estimate => lbl_estimate.innerHTML = `Estimate: ${estimate.HyPC.estimated_cost} HyPC`);
@@ -64,11 +66,18 @@ const setup = () => {
     console.log("SUBMIT CLICKED");
     const text = txt_text.value;
 
+    const my_msg = document.createElement("div");
+    my_msg.innerHtml = text;
+    chat_history.prepend(my_msg);
+
     hypClient.aims().groq.fetchResult("predict", {prompt: text})
       .then(dat => {
         console.log("Returned: ", dat);
 	btn_submit.innerHTML = "Send";
 	btn_submit.removeAttribute("disabled");
+        const resp_msg = document.createElement("div");
+        resp_msg.innerHtml = dat;
+        chat_history.prepend(resp_msg);
         return updateBalance();
       })
       .catch(err => {
