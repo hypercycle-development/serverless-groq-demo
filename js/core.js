@@ -28,7 +28,7 @@ const setup = () => {
   const btn_update_balance = byId("update_balance");
 
   const updateEstimate = () => {
-    return hypClient.aims().tortoise_tts.fetchEstimate("speak", {text: txt_text.value, voice: "freeman"})
+    return hypClient.aims().tortoise_tts.fetchEstimate("predict", {text: txt_text.value, voice: "freeman"})
       .then(estimate => lbl_estimate.innerHTML = `Estimate: ${estimate.HyPC.estimated_cost} HyPC`);
   };
 
@@ -64,7 +64,7 @@ const setup = () => {
     console.log("SUBMIT CLICKED");
     const text = txt_text.value;
 
-    hypClient.aims().groq.fetchResult("speak", {prompt: text})
+    hypClient.aims().groq.fetchResult("predict", {prompt: text})
       .then(dat => {
         console.log("Returned: ", dat);
 	btn_submit.innerHTML = "Send";
