@@ -28,7 +28,7 @@ const setup = () => {
   const btn_update_balance = byId("update_balance");
 
   const updateEstimate = () => {
-    return hypClient.aims().tortoise_tts.fetchEstimate("predict", {text: txt_text.value, voice: "freeman"})
+    return hypClient.aims().groq.fetchEstimate("predict", {prompt: txt_text.value})
       .then(estimate => lbl_estimate.innerHTML = `Estimate: ${estimate.HyPC.estimated_cost} HyPC`);
   };
 
