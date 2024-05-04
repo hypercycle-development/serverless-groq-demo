@@ -82,7 +82,7 @@ const setup = () => {
         resp_msg.classList.add("card");
         resp_msg.classList.add("text-bg-light");
         resp_msg.classList.add("my-2");
-        resp_msg.innerHTML = `<div class="card-header">You:</div><div class="card-body"><p class="card-text">${dat.response}</p></div>`;
+        resp_msg.innerHTML = `<div class="card-header">Groq:</div><div class="card-body"><p class="card-text">${dat.response}</p></div>`;
         chat_history.prepend(resp_msg);
         return updateBalance();
       })
