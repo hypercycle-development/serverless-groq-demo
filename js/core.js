@@ -82,7 +82,7 @@ const setup = () => {
         if (resp_lns.length == 1) {
           resp_msg.innerHTML = `<p class="text-bg-light"><b>Groq:</b> ${dat.response}</p>`;
         } else {
-          resp_msg.classList.add("vstack")
+          // resp_msg.classList.add("vstack");
           resp_msg.innerHTML = `<p class="text-bg-light"><b>Groq:</b> ${resp_lns[0]}</p>`
             + resp_lns.slice(1).map(sec => `<p class="text-bg-light">${sec}</p>`).join("");
         }
