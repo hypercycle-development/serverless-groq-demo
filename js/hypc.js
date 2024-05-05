@@ -363,7 +363,8 @@ const HyPC = {eth: (NODE, appName) => {
           ?  {method: method, headers: hdrs}
           : {method: method, headers: hdrs, body: options.body};
 
-    if (options.isPublic || options.costOnly || endpoint.endsWith("/manifest.json")) {
+    console.log("CHECKING FOR NONCELESS", [options.isPublic, options.costOnly, endpoint.endsWith("manifest.json")]);
+    if (options.isPublic || options.costOnly || endpoint.endsWith("manifest.json")) {
       return fetch(url, opts).then(res => res.json());
     }
     return fetchSignedNonce(userAddress)
@@ -389,6 +390,7 @@ const HyPC = {eth: (NODE, appName) => {
         AIMS = data.aim.aims.reduce((memo, aim) => {
           const name = toSnakeCase(aim.image_name);
           memo[name] = {info: aim,
+                        fetchManifest: () => aimFetch(aim.slot, "manifest.json", undefined, {method: "GET"}),
                         fetchEstimate: (endpoint, data, options) => {
                           return aimFetch(
                             aim.slot, endpoint, userAddress,
