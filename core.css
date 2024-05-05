@@ -13,5 +13,9 @@
 
 .msg-container p {
   max-width: 50%;
-  border-radius: 10px;
+  padding: 10px;
+  text-align: left;
 }
+
+.msg-container.right p { border-radius: 15px 15px 0px 15px;}
+.msg-container.left p { border-radius: 15px 15px 15px 0px; }
