@@ -1,4 +1,4 @@
-const hypClient = HyPC.eth("https://voiceboard.hypercycle.io", "HyPC Serverless Voiceboard");
+const hypClient = HyPC.eth("https://voiceboard.hypercycle.io", "HyPC Serverless Groq");
 
 const byId = id => document.getElementById(id);
 const bySel = selector => document.querySelector(selector);
@@ -78,10 +78,11 @@ const setup = () => {
 	btn_submit.removeAttribute("disabled");
         const resp_msg = document.createElement("div");
         resp_msg.classList.add("msg-container", "my-2", "right");
-        const resp_lns = dat.response.split(/n+/);
+        const resp_lns = dat.response.split(/\n+/);
         if (resp_lns.length == 1) {
           resp_msg.innerHTML = `<p class="text-bg-light"><b>Groq:</b> ${dat.response}</p>`;
         } else {
+          resp_msg.classList.add("vstack")
           resp_msg.innerHTML = `<p class="text-bg-light"><b>Groq:</b> ${resp_lns[0]}</p>`
             + resp_lns.slice(1).map(sec => `<p class="text-bg-light">${sec}</p>`).join("");
         }
@@ -97,6 +98,6 @@ const setup = () => {
 };
 
 window.addEventListener("DOMContentLoaded", () => {
-  console.log("Setting up voiceboard...");
+  console.log("Setting up groq...");
   setup();
 });
