@@ -363,10 +363,11 @@ const HyPC = {eth: (NODE, appName) => {
           ?  {method: method, headers: hdrs}
           : {method: method, headers: hdrs, body: options.body};
 
-    console.log("CHECKING FOR NONCELESS", [options.isPublic, options.costOnly, endpoint.endsWith("manifest.json")]);
-    if (options.isPublic || options.costOnly || endpoint.endsWith("manifest.json")) {
+    const shouldRunNonceless = options.isPublic || options.costOnly || endpoint.endsWith("manifest.json");
+    if (shouldRunNonceless) {
       return fetch(url, opts).then(res => res.json());
     }
+
     return fetchSignedNonce(userAddress)
       .then(data => {
         hdrs["tx-nonce"] = data.message;
