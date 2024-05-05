@@ -83,7 +83,7 @@ const setup = () => {
           resp_msg.innerHTML = `<p class="text-bg-light"><b>Groq:</b> ${dat.response}</p>`;
         } else {
           resp_msg.innerHTML = `<p class="text-bg-light"><b>Groq:</b> ${resp_lns[0]}</p>`
-            + resp_lns.slice(1).map(sec => `<p class="text-bg-light">${sec}</p>`);
+            + resp_lns.slice(1).map(sec => `<p class="text-bg-light">${sec}</p>`).join("");
         }
         chat_history.prepend(resp_msg);
         return updateBalance();
